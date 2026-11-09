@@ -40,23 +40,16 @@ int main() {
 
     for(int i = 0; i < n - 2; i++) {
         for(int j = i + 1; j < n - 1; j++) {
-            int temp = 0 ;
-            temp = iscarry(arr[i], arr[j]);
-            int tempB = temp;
+            int temp = iscarry(arr[i], arr[j]);
 
             if(temp > 0) {
-                for(int k = j + 1; k < n; k++) {
-                    int prev = arr[k];
-                    int second = iscarry(temp, arr[k]);
-                    if(second == 0) { 
-                        continue;
-                    }
-                    else {
-                        maxV = max(second, maxV);
-                        temp -= prev;
-                    }
-                    //cout << prev << " ";
+            for(int k = j + 1; k < n; k++) {
+                if(iscarry(temp, arr[k]) != 0) { 
+                    temp += arr[k];
+                    maxV = max(maxV, temp);
+                    temp -= arr[k];
                 }
+            }
             }
         }
     }

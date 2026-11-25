@@ -8,8 +8,9 @@ using namespace std;
 int main() {
     int n;
     string str;
-    str.reserve(n);
     cin >> n >> str;
+
+    str.reserve(n);
 
     int maxL = 0;
 
